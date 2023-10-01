@@ -1,0 +1,35 @@
+
+h1{
+    text-align: center;
+    border-bottom: 2px black solid;
+}
+
+#gameStatus{
+    text-align: center;
+    color: green;
+}
+
+.container {
+    background-color: rgba(168, 168, 168, 0.233); /* Add a semi-transparent white background to the container */
+    border-radius: 10px; /* Add rounded corners for a nicer look */
+    padding: 20px;
+    margin-top: 50px;
+    text-align: center;
+}
+ #myTyping {
+    font-size: 30px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.7); /* Make sure text is readable on the gradient background */
+    border: none; 
+}
+
+#guesses{
+     color: brown;
+}
+#emotes{
+    height: 40px;
+    position: relative;
+    top: -47px;
+    left: 157px;
+    z-index: 99 !important;
+}
