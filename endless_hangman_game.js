@@ -35,6 +35,7 @@ export function startNewGame() {
     myMultiplier.innerText = "Multiplier: x" + multiplier;
     myScore.innerText = "Score: " + score;
     gameStatus.innerText = "Guess the Word!";
+    gameStatus.style.color = 'green';
     generateWord();
     resetHangman();
     emotes();
@@ -43,7 +44,7 @@ export function startNewGame() {
 function emotes(i = -1){//creates emote elements array with existing img elements, just once. Resets emote with index.
     while(allEmotes.childElementCount > 0){
         if(!emotesArr.includes(allEmotes.firstElementChild)){
-            console.log(allEmotes.firstElementChild);
+            //console.log(allEmotes.firstElementChild);
             emotesArr.push(allEmotes.removeChild(allEmotes.firstElementChild));
         }
         else{
@@ -57,7 +58,7 @@ function emotes(i = -1){//creates emote elements array with existing img element
 
 function generateWord() {
     randWord = generate();
-    console.log(randWord);
+    //console.log(randWord);
     myWord = '';
     for (const l of randWord) {//Creates string of blanks of equal length as randWord for comparison
         myWord += '_';
@@ -133,6 +134,7 @@ document.addEventListener('keydown', function (event) {
 
 function endGame() {
     gameStatus.innerText = `Game Over! The word was '${randWord}'. Your score was ${score}. Press Start to begin.`;
+    gameStatus.style.color = 'red';
     gameStarted = false;
 }
 
