@@ -13,9 +13,9 @@ h1{
     background-color: rgba(168, 168, 168, 0.233); /* Add a semi-transparent white background to the container */
     border-radius: 10px; /* Add rounded corners for a nicer look */
     padding: 20px;
-    margin-top: 50px;
     text-align: center;
 }
+
  #myTyping {
     font-size: 30px;
     margin-bottom: 20px;
@@ -26,10 +26,28 @@ h1{
 #guesses{
      color: brown;
 }
-#emotes{
+.emote{
     height: 40px;
-    position: relative;
-    top: -47px;
-    left: 157px;
+    position:relative;
     z-index: 99 !important;
+}
+
+#allEmotes{
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    position: relative;
+    left: 50%;
+    top: 100px;
+}
+
+#HMElements{
+    position: relative;
+    height: 270px;
+    width: 300px;
+    left:50%;
+}
+
+.hm{
+    left: -115px;
 }

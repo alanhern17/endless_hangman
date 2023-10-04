@@ -15,41 +15,54 @@
     <h1 class='text-light' id="title">Endless Hangman</h1>
     <h3 id="gameStatus">Press Start to Begin</h3>
     <div class="border-3 border-secondary bg-light container mt-1 border border-2">
-        <div class = "row">
+        <div class="row">
             <h3 class="col-4" id="myScore">Score: 0</h3>
             <h3 class="col-4" id="myMultiplier">Multiplier: x1</h3>
             <h3 class="col-4" id="myStrikes">Strikes left: 6</h3>
         </div>
     </div>
-    <div id="hangman" class = "border-3 border-secondary bg-light container mt-1 border border-2">
-        <img id='emotes' class="" src="img/Worried_Emoji.png" alt="">
-        <!-- <img class="z-3 position-absolute" src="img/head.png" alt=""> -->
-        <img class="z-3 position-absolute" src="img/body.png" alt="">
-        <img class="z-0 position-absolute" src="img/L_Arm.png" alt="">
-        <img class="z-0 position-absolute" src="img/R_Arm.png" alt="">
-        <img class="z-0 position-absolute" src="img/L_Leg.png" alt="">
-        <img class="z-0 position-absolute" src="img/R_Leg.png" alt="">
-        <img src="img/post.png" alt="">
+    <div class="border-3 border-secondary bg-light container mt-1 border border-2">
+        <div id="allEmotes">
+            <img class='emote' src="img/Worried_Emoji.png" alt="">
+            <img class='emote' src="img/Anguished_Emoji.png" alt="">
+            <img class='emote' src="img/Sweat_Emoji.png" alt="">
+            <img class='emote' src="img/Tired_Face.png" alt="">
+            <img class='emote' src="img/Weary_Face.png" alt="">
+            <img class='emote' src="img/Dizzy_Emoji.png" alt="">
+        </div>
+        <div id="HMElements">
+            <img class="hm position-absolute" src="" alt="">
+            <img class="hm position-absolute" src="img/body.png" alt="">
+            <img class="hm position-absolute" src="img/L_Arm.png" alt="">
+            <img class="hm position-absolute" src="img/R_Arm.png" alt="">
+            <img class="hm position-absolute" src="img/L_Leg.png" alt="">
+            <img class="hm position-absolute" src="img/R_Leg.png" alt="">
+            <img class="hm position-absolute" src="img/post.png" alt="">
+        </div>
     </div>
-    <div class = "bg-light border-3 border-secondary container mt-1 border border-2">
+    <div class="bg-light border-3 border-secondary container mt-1 border border-2">
         <div class="row">
-            <h2 class = "col" id="guesses">Wrong Guesses: </h2>
+            <h2 class="col" id="guesses">Wrong Guesses: </h2>
         </div>
         <div class="row">
-            <h2 class = "col bg-secondary text-light pb-2" id="myTyping">Your Word: </h2>
+            <h2 class="col bg-secondary text-light pb-2" id="myTyping">Your Word: </h2>
         </div>
     </div>
     <div class="mt-3 row d-flex justify-content-center">
-        <button class="col-3 col-md-2 btn btn-primary btn-lg px-0 border-3 border-secondary" id="startGameButton">Start Game</button>
-      </div>
-      <div>
+        <button class="col-3 col-md-2 btn btn-primary btn-lg px-0 border-3 border-secondary" id="startGameButton">Start
+            Game</button>
+    </div>
+    <div>
         <h3 class="text-light ms-5">How to Play</h3>
-        <p class="text-light ms-5">1. Classic hangman with a twist! Guess the random words one letter at a time while trying to achieve a high score.</p>
+        <p class="text-light ms-5">1. Classic hangman with a twist! Guess the random words one letter at a time while
+            trying to achieve a high score.</p>
         <p class="text-light ms-5">2. You will get points based on the length of the word and your point multiplier.</p>
-        <p class="text-light ms-5">3. Your point multiplier increases everytime you guess a word correctly and your strikes reset.</p>
-        <p class="text-light ms-5">4. Guessing a letter wrong will cost you a strike, and a part of the hangman will be added.</p>
+        <p class="text-light ms-5">3. Your point multiplier increases everytime you guess a word correctly and your
+            strikes reset.</p>
+        <p class="text-light ms-5">4. Guessing a letter wrong will cost you a strike, and a part of the hangman will be
+            added.</p>
         <p class="text-light ms-5">5. Run out of strikes and it's game over!</p>
-      </div>
+    </div>
     <script type="module">
         import { startNewGame } from "./endless_hangman_game.js";
         document.querySelector('#startGameButton').addEventListener('click', startNewGame);

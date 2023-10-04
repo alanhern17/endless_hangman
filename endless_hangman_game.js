@@ -1,9 +1,9 @@
 import { generate } from "/random_word_generator.js";
 
-const emotes = ['img/Worried_Emoji.png', 'img/Anguished_Emoji.png', 'img/Sweat_Emoji.png',
-    'img/Tired_Face.png', 'img/Weary_Face.png', 'img/Dizzy_Emoji.png'];
+const emotesArr = [];
 
-const hangman = document.getElementById('hangman');
+const hangman = document.getElementById('HMElements');
+const allEmotes = document.getElementById('allEmotes');
 const gameStatus = document.getElementById('gameStatus');
 const guesses = document.getElementById('guesses');
 const myStrikes = document.getElementById('myStrikes');
@@ -37,11 +37,27 @@ export function startNewGame() {
     gameStatus.innerText = "Guess the Word!";
     generateWord();
     resetHangman();
+    emotes();
+}
+
+function emotes(i = -1){//creates emote elements array with existing img elements, just once. Resets emote with index.
+    while(allEmotes.childElementCount > 0){
+        if(!emotesArr.includes(allEmotes.firstElementChild)){
+            console.log(allEmotes.firstElementChild);
+            emotesArr.push(allEmotes.removeChild(allEmotes.firstElementChild));
+        }
+        else{
+            allEmotes.removeChild(allEmotes.firstElementChild);
+        }
+    }
+    if(i!==-1){
+        allEmotes.appendChild(emotesArr[i]);
+    }
 }
 
 function generateWord() {
     randWord = generate();
-    //console.log(randWord);
+    console.log(randWord);
     myWord = '';
     for (const l of randWord) {//Creates string of blanks of equal length as randWord for comparison
         myWord += '_';
@@ -81,6 +97,7 @@ function compareWords() {
         resetHangman();
         updateScore();
         generateWord();
+        emotes();
     }
 }
 
@@ -96,7 +113,7 @@ document.addEventListener('keydown', function (event) {
         if (!randWord.includes(event.key) && !wrongGuesses.includes(event.key)) {//checks if the letter is not in randWord or in guessed letters
             strikes--;
             hangman.children[hangmanIndex].style.display = 'inline';
-            hangman.firstElementChild.src = emotes[hangmanIndex];
+            emotes(hangmanIndex);
             hangmanIndex++;
             wrongGuesses += event.key + ', ';
             guesses.innerText = "Wrong Guesses: " + wrongGuesses;
